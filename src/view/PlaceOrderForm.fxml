@@ -1,14 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="view.PlaceOrderForm"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="527.0" prefWidth="732.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PlaceOrderController">
+   <children>
+      <Label layoutX="215.0" layoutY="14.0" prefHeight="41.0" prefWidth="408.0" text="Place Order">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <Label fx:id="txtDate" layoutX="499.0" layoutY="14.0" prefHeight="41.0" prefWidth="219.0" text="Date: " />
+      <ComboBox fx:id="cmbCutId" layoutX="14.0" layoutY="123.0" prefHeight="25.0" prefWidth="284.0" promptText="Customer ID" />
+      <ComboBox fx:id="cmbItemCode" layoutX="15.0" layoutY="184.0" prefHeight="25.0" prefWidth="283.0" promptText="Item Code" />
+      <TextField fx:id="txtCustName" layoutX="381.0" layoutY="123.0" prefHeight="25.0" prefWidth="319.0" promptText="Customer Name" />
+      <TextField fx:id="txtDescription" layoutX="381.0" layoutY="184.0" prefHeight="25.0" prefWidth="319.0" promptText="Description " />
+      <TextField fx:id="txtQty" layoutX="547.0" layoutY="239.0" prefHeight="25.0" prefWidth="153.0" promptText="Qty " />
+      <TextField fx:id="txtQtyOnHand" layoutX="14.0" layoutY="239.0" prefHeight="25.0" prefWidth="167.0" promptText="QtyOnHand " />
+      <TextField fx:id="txtUnitPrice" layoutX="262.0" layoutY="239.0" prefHeight="25.0" prefWidth="176.0" promptText="Unit Price" />
+      <TextField fx:id="txtOrderId" layoutX="14.0" layoutY="73.0" prefHeight="25.0" prefWidth="283.0" promptText="Order ID" />
+      <TableView layoutX="15.0" layoutY="340.0" prefHeight="141.0" prefWidth="692.0">
+        <columns>
+          <TableColumn prefWidth="143.0" text="Item Code" />
+          <TableColumn prefWidth="197.0" text="Item Description" />
+            <TableColumn prefWidth="141.0" text="QtyOnHand" />
+            <TableColumn prefWidth="106.0" text="UnitPrice" />
+            <TableColumn prefWidth="104.0" text="Total" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnAdd" layoutX="596.0" layoutY="294.0" mnemonicParsing="false" onAction="#btnAddOnAction" prefHeight="25.0" prefWidth="104.0" text="Order Add" />
+      <Button fx:id="btnPlaceOrder" layoutX="563.0" layoutY="488.0" mnemonicParsing="false" onAction="#onActionPlaceOrder" prefHeight="25.0" prefWidth="144.0" text="Place Order" />
+   </children>
 </AnchorPane>

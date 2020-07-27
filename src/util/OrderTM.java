@@ -1,10 +1,11 @@
 package util;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 public class OrderTM {
     private String orderId;
-    private LocalDate orderDate;
+    private Date orderDate;
     private String customerId;
     private String customerName;
     private double orderTotal;
@@ -12,7 +13,7 @@ public class OrderTM {
     public OrderTM() {
     }
 
-    public OrderTM(String orderId, LocalDate orderDate, String customerId, String customerName, double orderTotal) {
+    public OrderTM(String orderId, Date orderDate, String customerId, String customerName, double orderTotal) {
         this.orderId = orderId;
         this.orderDate = orderDate;
         this.customerId = customerId;
@@ -28,11 +29,11 @@ public class OrderTM {
         this.orderId = orderId;
     }
 
-    public LocalDate getOrderDate() {
+    public Date getOrderDate() {
         return orderDate;
     }
 
-    public void setOrderDate(LocalDate orderDate) {
+    public void setOrderDate(Date orderDate) {
         this.orderDate = orderDate;
     }
 
