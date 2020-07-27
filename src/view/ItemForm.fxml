@@ -1,14 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="view.ItemForm"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="456.0" prefWidth="606.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ItemController">
+    <children>
+        <AnchorPane layoutY="1.0" prefHeight="513.0" prefWidth="606.0">
+            <children>
+                <Label layoutX="126.0" layoutY="14.0" prefHeight="35.0" prefWidth="385.0" text="Manage Item">
+                    <font>
+                        <Font size="37.0" />
+                    </font>
+                </Label>
+                <Button fx:id="btnAddNewItem" layoutX="26.0" layoutY="80.0" mnemonicParsing="false" onAction="#btnAddNewItemOnAction" prefHeight="31.0" prefWidth="200.0" text="Add New Item" />
+                <Label layoutX="54.0" layoutY="128.0" prefHeight="31.0" prefWidth="200.0" text="Item Code" />
+                <Label layoutX="54.0" layoutY="221.0" prefHeight="31.0" prefWidth="200.0" text="Item QtyOnHand" />
+                <Label layoutX="54.0" layoutY="174.0" prefHeight="31.0" prefWidth="200.0" text="Item Description" />
+                <TextField fx:id="txtCode" layoutX="192.0" layoutY="131.0" prefHeight="25.0" prefWidth="385.0" />
+                <TextField fx:id="txtDescription" layoutX="192.0" layoutY="177.0" prefHeight="25.0" prefWidth="385.0" />
+                <TextField fx:id="txttxtQtyOnHand" layoutX="192.0" layoutY="224.0" prefHeight="25.0" prefWidth="385.0" />
+                <Button fx:id="btnRemove" layoutX="503.0" layoutY="263.0" mnemonicParsing="false" onAction="#btnRemoveItemOnAction" prefHeight="25.0" prefWidth="77.0" text="Remove" />
+                <Button fx:id="btnItemAdd" layoutX="396.0" layoutY="263.0" mnemonicParsing="false" onAction="#btnAddItemOnAction" prefHeight="25.0" prefWidth="84.0" text="Add" />
+                <TableView fx:id="tblItem" layoutX="35.0" layoutY="300.0" prefHeight="200.0" prefWidth="545.0">
+                    <columns>
+                        <TableColumn prefWidth="105.0" text="Item Code" />
+                        <TableColumn prefWidth="162.0" text="Item Description" />
+                        <TableColumn prefWidth="144.0" text="Item QtyOnHand" />
+                  <TableColumn prefWidth="133.0" text="Unit Price" />
+                    </columns>
+                </TableView>
+            <Label layoutX="54.0" layoutY="260.0" prefHeight="31.0" prefWidth="99.0" text="Unit Price" />
+            <TextField fx:id="txtUnitPrice" layoutX="192.0" layoutY="263.0" />
+              
+            </children></AnchorPane>
+    </children>
 </AnchorPane>

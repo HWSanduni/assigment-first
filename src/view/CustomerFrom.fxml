@@ -1,14 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="view.CustomerFrom"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="456.0" prefWidth="606.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CustomerController">
+   <children>
+      <AnchorPane layoutY="1.0" prefHeight="513.0" prefWidth="606.0">
+         <children>
+            <Label layoutX="126.0" layoutY="14.0" prefHeight="35.0" prefWidth="385.0" text="Manage Customer">
+               <font>
+                  <Font size="37.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnAddNewCustomer" layoutX="26.0" layoutY="80.0" mnemonicParsing="false" onAction="#btnAddNewCustomerOnAction" prefHeight="31.0" prefWidth="200.0" text="Add New Customer" />
+            <Label layoutX="54.0" layoutY="128.0" prefHeight="31.0" prefWidth="200.0" text="Customer ID" />
+            <Label layoutX="54.0" layoutY="221.0" prefHeight="31.0" prefWidth="200.0" text="Customer Address" />
+            <Label layoutX="54.0" layoutY="174.0" prefHeight="31.0" prefWidth="200.0" text="Customer Name" />
+            <TextField fx:id="txtCustId" layoutX="192.0" layoutY="131.0" prefHeight="25.0" prefWidth="385.0" />
+            <TextField fx:id="txtCustName" layoutX="192.0" layoutY="177.0" prefHeight="25.0" prefWidth="385.0" />
+            <TextField fx:id="txtCustAddress" layoutX="192.0" layoutY="224.0" prefHeight="25.0" prefWidth="385.0" />
+            <Button fx:id="btnRemove" layoutX="503.0" layoutY="263.0" mnemonicParsing="false" onAction="#btnRemoveCustomerOnAction" prefHeight="25.0" prefWidth="77.0" text="Remove" />
+            <Button fx:id="btnCustomerAdd" layoutX="396.0" layoutY="263.0" mnemonicParsing="false" onAction="#btnAddCustomerOnAction" prefHeight="25.0" prefWidth="84.0" text="Add" />
+            <TableView fx:id="tblCust" layoutX="35.0" layoutY="300.0" prefHeight="200.0" prefWidth="545.0">
+              <columns>
+                <TableColumn prefWidth="165.0" text="Customer ID" />
+                <TableColumn prefWidth="171.0" text="Customer Name" />
+                  <TableColumn prefWidth="207.0" text="Customer Address" />
+              </columns>
+            </TableView>
+         </children></AnchorPane>
+   </children>
 </AnchorPane>
