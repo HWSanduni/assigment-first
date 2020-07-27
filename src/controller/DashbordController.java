@@ -19,7 +19,12 @@ public class DashbordController {
         mainStage.centerOnScreen();
     }
 
-    public void itemOnMouseClicked(ActionEvent actionEvent) {
+    public void itemOnMouseClicked(ActionEvent actionEvent) throws Exception{
+        Parent root = FXMLLoader.load(getClass().getResource("/view/ItemForm.fxml"));
+        Scene scene = new Scene(root);
+        Stage mainStage = (Stage)(rootpane.getScene().getWindow());
+        mainStage.setScene(scene);
+        mainStage.centerOnScreen();
     }
 
     public void orderOnMouseClicked(ActionEvent actionEvent) {
