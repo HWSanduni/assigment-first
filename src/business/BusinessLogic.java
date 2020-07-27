@@ -3,6 +3,8 @@ package business;
 import dao.DataLayer;
 import util.CustomerTM;
 import util.ItemTM;
+import util.OrderDetailTM;
+import util.OrderTM;
 
 import java.util.List;
 
@@ -76,6 +78,10 @@ public class BusinessLogic {
     }
     public static boolean deleteItem(String itemCode){
         return DataLayer.deleteItem(itemCode);
+    }
+
+    public static boolean placeOrder(OrderTM order, List<OrderDetailTM> orderDetails){
+        return DataLayer.placeOrder(order, orderDetails);
     }
 
 
