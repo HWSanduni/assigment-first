@@ -1,11 +1,15 @@
 package business;
 
 import dao.DataLayer;
+import db.DBConnection;
 import util.CustomerTM;
 import util.ItemTM;
 import util.OrderDetailTM;
 import util.OrderTM;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.List;
 
 public class BusinessLogic {
@@ -81,7 +85,55 @@ public class BusinessLogic {
     }
 
     public static boolean placeOrder(OrderTM order, List<OrderDetailTM> orderDetails){
-        return DataLayer.placeOrder(order, orderDetails);
+      //  return DataLayer.placeOrder(order, orderDetails);
+
+        Connection connection = DBConnection.getInstance().getConnection();
+        try {
+            connection.setAutoCommit(false);
+            boolean b = DataLayer.saveOrder(order);
+
+            if (b == false) {
+                connection.rollback();
+                return false;
+            }
+
+
+            for (OrderDetailTM orderDetail: orderDetails) {
+                boolean result = DataLayer.saveOrderDetails(order,orderDetails);
+
+
+                if (result == false){
+                    connection.rollback();
+                    return false;
+                }
+
+                boolean res = DataLayer.updateQty(orderDetails);
+
+
+                if (res == false){
+                    connection.rollback();
+                    return false;
+                }
+            }
+            connection.commit();
+            return true;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+            try {
+                connection.rollback();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            return false;
+        } finally {
+            try {
+                connection.setAutoCommit(true);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+        }
+
+
     }
 
 
